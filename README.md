@@ -24,7 +24,15 @@ This project was built using:
 - Socket.IO
 
 # Mining
-The script generates a random hash when it starts. The goal is to mine the next block by finding a hash that starts with a certain number of leading zeroes. The number of leading zeroes is determined by the difficulty level, which can be changed by the player. During this process the script generates random diamonds that the user can catch clicking on button "TAKE DIAMOND".
+The verifyHash() function is the main function of the script that performs the actual mining of the hash. The function takes three arguments, hash, leadingZeros, and count. The hash argument is the initial hash that needs to be mined, leadingZeros is the number of zeros that need to be present at the beginning of the hash, and count is the number of calculations that need to be performed to mine the hash.
+
+The function initializes the progress bar and calculates the maximum number of calculations that need to be performed based on the count argument. Then, the function enters a loop that continues until either the hash has the required number of leading zeros or the maximum number of calculations has been reached.
+
+The loop performs a calculation by concatenating the hash with the current count and hashing the resulting data using the sha256() function. The progress bar is updated with the progress of the mining.
+
+When the hash has been mined, the showRandomDiamonds() function is called to display a random number of diamonds on the screen. The function sends the calculated hash and the number of calculations performed to the server using the sendMessage() function, which sends the data to the server via web sockets. Finally, the takeDiamonds button is made visible, and the progress bar is hidden.
+
+Overall, the verifyHash() function is an essential part of the script that performs the actual mining of the hash. It takes three arguments, initializes the progress bar, and updates it as the mining progresses.
 
 <img width="613" alt="image" src="https://user-images.githubusercontent.com/91114967/221302262-7ca48c79-f11c-4942-bfdf-cbdd5b82f3d7.png">
 
