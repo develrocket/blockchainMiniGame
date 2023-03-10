@@ -1,4 +1,4 @@
-# Diamonds_Blockchain_Mining_Script
+# Blockchain_Mining_Game
 
 This is a JavaScript-based project that allows users to contribute to a decentralized calculation process to mine a hash. The project uses web sockets to enable communication between clients and the server. The mining process is divided into small tasks that all clients can contribute to at the same time.
 
